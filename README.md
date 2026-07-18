@@ -1,122 +1,115 @@
-# 🧠 Sistema de Predicción de Demanda - ZEUS
+# ZEUS AI - Predicción de demanda para excursiones turísticas
 
-Este proyecto implementa un sistema de predicción de demanda para excursiones turísticas en Tenerife, integrado con el sistema ZEUS de Atlántico Excursiones.
+## Descripción
 
-El objetivo principal es anticipar la demanda diaria de cada excursión para optimizar la planificación de recursos, especialmente la asignación de autobuses.
+Este repositorio contiene el código fuente desarrollado como parte del Trabajo Fin de Máster (TFM) titulado:
 
----
+**Sistema de predicción de demanda mediante Inteligencia Artificial para la planificación operativa de excursiones turísticas.**
 
-## 🚀 Funcionalidades
-
-* 📊 Predicción de demanda diaria por excursión
-* 🤖 Uso de modelos de Machine Learning (Random Forest, XGBoost, etc.)
-* 📅 Incorporación de variables temporales (día de la semana, mes)
-* 📈 Uso de variables históricas (lags y medias móviles)
-* 🔗 Integración con sistema ZEUS (PHP + Python)
+El objetivo del proyecto es desarrollar un sistema capaz de predecir la demanda diaria de excursiones utilizando técnicas de Machine Learning, proporcionando una herramienta de apoyo para la planificación operativa basada en datos históricos.
 
 ---
 
-## 📂 Estructura del proyecto
+## Tecnologías utilizadas
 
-```text
+- Python 3.11
+- Pandas
+- NumPy
+- Scikit-Learn
+- XGBoost
+- LightGBM
+- CatBoost
+- Matplotlib
+- Statsmodels
+- MySQL
+
+---
+
+## Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/spinoffsoft/atlantico-excursiones.git
+```
+
+Instalar las dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Estructura del proyecto
+
+```
 src/
-├── extract_zeus.py      # Extracción de datos desde MySQL
-├── preprocess.py        # Limpieza y generación de variables
-├── train_models.py      # Entrenamiento y evaluación de modelos
-├── predict.py           # Predicción diaria
+│
+├── extract_zeus.py           # Extracción de datos desde ZEUS
+├── preprocess.py             # Preparación y limpieza de datos
+├── train_models.py           # Entrenamiento de modelos
+├── predict.py                # Generación de predicciones
+├── forecasting_engine.py     # Motor de predicción
+├── model_evaluation.py       # Evaluación de modelos
+├── business_metrics.py       # Métricas de negocio
+├── excursions.py             # Configuración de excursiones
+├── plots_pro.py              # Generación de gráficos
+├── config.py                 # Configuración del proyecto
+└── main.py                   # Punto de entrada
 ```
 
 ---
 
-## 🔄 Pipeline del sistema
+## Flujo de ejecución
 
-1. **Extracción de datos**
-
-   * Se obtienen las reservas desde la base de datos ZEUS
-
-2. **Preprocesamiento**
-
-   * Limpieza de datos
-   * Generación de variables temporales
-   * Creación de lags y medias móviles
-
-3. **Entrenamiento**
-
-   * Evaluación de múltiples modelos
-   * Selección del mejor modelo (Random Forest)
-
-4. **Predicción**
-
-   * Estimación de demanda para el día siguiente
-   * Integración con el sistema ZEUS
+1. Extraer los datos desde ZEUS.
+2. Preparar el conjunto de datos.
+3. Entrenar los modelos.
+4. Seleccionar el mejor modelo.
+5. Generar las predicciones.
+6. Evaluar los resultados.
 
 ---
 
-## 🤖 Modelo utilizado
+## Datos
 
-El modelo seleccionado ha sido **Random Forest**, debido a:
+Los datos utilizados proceden del sistema de reservas **ZEUS**, propiedad de **Atlántico Excursiones**.
 
-* Mejor rendimiento en MAE
-* Mayor robustez frente a ruido
-* Mejor generalización en datos reales
+Por motivos de confidencialidad y protección de la información comercial de la empresa, el conjunto de datos original no puede hacerse público.
 
----
-
-## 📊 Resultados
-
-* MAE ≈ 5.7 personas
-* R² ≈ 0.76
-* Error en picos ≈ 16 personas
-
-Estos resultados se consideran adecuados para su uso en un entorno real de negocio.
+El repositorio contiene únicamente el código fuente desarrollado para el TFM.
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+## Modelo entrenado
 
-* Python
-* Pandas / NumPy
-* Scikit-learn
-* XGBoost / LightGBM / CatBoost
-* MySQL
-* PHP (integración con ZEUS)
-
----
-
-## ▶️ Uso
-
-1. Entrenar modelo:
+El modelo puede generarse ejecutando:
 
 ```bash
-python train_models.py
-```
-
-2. Generar predicción:
-
-```bash
-python predict.py
+python src/train_models.py
 ```
 
 ---
 
-## 📌 Notas
+## Reproducibilidad
 
-* Los datos históricos y modelos entrenados no se incluyen en el repositorio por motivos de privacidad y tamaño.
-* El sistema está diseñado para su integración en producción con ZEUS.
-
----
-
-## 👨‍💻 Autor
-
-Proyecto desarrollado como Trabajo Fin de Máster (TFM) en Ingeniería de Software / Inteligencia Artificial.
+El proyecto puede reproducirse utilizando un conjunto de datos con la misma estructura que la descrita en la memoria del TFM.
 
 ---
 
-## 📈 Futuras mejoras
+## Versión
 
-* Predicción por intervalos horarios
-* Incorporación de variables externas (clima, eventos)
-* Optimización automática de recursos (buses)
-* Dashboard de visualización en tiempo real
+Versión correspondiente al Trabajo Fin de Máster.
+
+Versión: **v1.0-TFM**
 
 ---
+
+## Autor
+
+Michael Cohen
+
+Máster Universitario en Inteligencia Artificial
+
+2026

@@ -19,9 +19,9 @@ from datetime import datetime
 # ==============================
 DB_CONFIG = {
     "host": "localhost",        # cambia si es remoto
-    "user": "root",
-    "password": "DoTravel2020",
-    "database": "atlantico_res",      # nombre real
+    "user": "*****",
+    "password": "*************",
+    "database": "*************",      # nombre real
     "port": 3306
 }
 
